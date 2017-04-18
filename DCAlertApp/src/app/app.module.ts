@@ -2,12 +2,10 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { UsersPage } from '../pages/users/users';
-import { ReposPage } from '../pages/repos/repos';
-import { OrganisationsPage } from '../pages/organisations/organisations';
+import { AlertsPage } from '../pages/alerts/alerts';
 
-import { GithubUsers } from '../providers/github-users';
-import {UserDetailsPage } from '../pages/user-details/user-details';
+import { AlertsDetails } from '../providers/alerts-details';
+import {AlertDetailsPage } from '../pages/alert-details/alert-details';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -15,10 +13,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 @NgModule({
   declarations: [
     MyApp,
-    UsersPage,
-    ReposPage,
-    OrganisationsPage,
-    UserDetailsPage
+    AlertsPage,
+    AlertDetailsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -26,15 +22,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    UsersPage,
-    ReposPage,
-    OrganisationsPage,
-    UserDetailsPage
+    AlertsPage,
+    AlertDetailsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    GithubUsers,
+    AlertsDetails,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

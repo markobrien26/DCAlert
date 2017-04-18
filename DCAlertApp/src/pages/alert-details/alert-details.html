@@ -1,0 +1,30 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Alert details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding >
+  <ion-list>
+    <ion-item>
+      <ion-label>Time</ion-label>
+      <ion-badge item-right>{{alert?.Created_date | date: 'dd-MM-yyyy @ hh:mm:ss' }}</ion-badge>
+    </ion-item>
+     <ion-item>
+      <ion-label>Source IP</ion-label>
+      <ion-badge item-right>{{alert?.src_ip}}</ion-badge>
+    </ion-item>
+     <ion-item>
+      <ion-label>ID</ion-label>
+      <ion-badge item-right>{{alert?._id}}</ion-badge>
+    </ion-item>
+     <ion-item>
+      <ion-label>Gists</ion-label>
+      <ion-badge item-right>{{alert?.public_gists}}</ion-badge>
+    </ion-item>
+  </ion-list>    
+</ion-content>
