@@ -11,13 +11,13 @@ import { GithubUsers } from '../../providers/github-users';
 })
 export class UserDetailsPage {
   user: User;
-  Created_date: string;
+  _id: string;
 
   constructor(public navCtrl: NavController, private navParams: NavParams, private githubUsers: GithubUsers) {
-    this.Created_date = navParams.get('Created_date');
-    githubUsers.loadDetails(this.Created_date).subscribe(user => {
+    this._id = navParams.get('_id');
+    githubUsers.loadDetails(this._id).subscribe(user => {
       this.user = user;
-      //console.log(Created_date)
+      console.log(this._id)
     })
   }
 }

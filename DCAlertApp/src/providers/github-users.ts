@@ -5,31 +5,31 @@ import 'rxjs/add/operator/map';
 
 import { User } from '../models/user';
 
-var login = "58dc1c469624850c66e3421a"
 
 @Injectable()
 export class GithubUsers {
-  githubApiUrl = 'http://87.44.19.97:3000';
+  baseUrl = 'http://87.44.19.97:3000';
+  users: User[]
 
   constructor(public http: Http) { }
 
   // Load all github users
   load(): Observable<User[]> {
-    return this.http.get(`${this.githubApiUrl}/tasks`)
+    return this.http.get(`${this.baseUrl}/tasks`)
       .map(res => <User[]>res.json());
   }
 
 
   // Get github user by providing login(_id)
-  loadDetails( _id : string): Observable<User> {
-    return this.http.get(`${this.githubApiUrl}/tasks/${login}`)
+  loadDetails(_id: string): Observable<User> {
+    console.log(_id);
+    return this.http.get(`${this.baseUrl}/tasks/${_id}`)
       .map(res => <User>(res.json()))
-    
   }
 
    // Search for github users  
   searchUsers(searchParam: string): Observable<User[]> {
-    return this.http.get(`${this.githubApiUrl}/tasks`) 
+    return this.http.get(`${this.baseUrl}/tasks`) 
       .map(res => <User[]>(res.json().items))
   }
 }

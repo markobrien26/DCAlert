@@ -22,9 +22,9 @@ export class UsersPage {
     })
   }
 
-  goToDetails(Created_date: string) {
-    this.navCtrl.push(UserDetailsPage, {Created_date});
-    console.log(Created_date)
+  goToDetails(_id: string) {
+    this.navCtrl.push(UserDetailsPage, {_id});
+    console.log(_id)
   }
 
   search(searchEvent) {

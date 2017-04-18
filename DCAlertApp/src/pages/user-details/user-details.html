@@ -16,8 +16,8 @@
 <ion-content padding >
   <ion-list>
     <ion-item>
-      <ion-label>Date</ion-label>
-      <ion-badge item-right>{{user?.Created_date}}</ion-badge>
+      <ion-label>Time</ion-label>
+      <ion-badge item-right>{{user?.Created_date | date: 'dd-MM-yyyy @ hh:mm:ss' }}</ion-badge>
     </ion-item>
      <ion-item>
       <ion-label>Source IP</ion-label>
