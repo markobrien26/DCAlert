@@ -13,21 +13,21 @@ export class AlertsDetails {
 
   constructor(public http: Http) { }
 
-  // Load all github alerts
+  // Load all alerts
   load(): Observable<Alert[]> {
     return this.http.get(`${this.baseUrl}/tasks`)
       .map(res => <Alert[]>res.json());
   }
 
 
-  // Get github Alert by providing login(_id)
+  // Get  Alert by providing login(_id)
   loadDetails(_id: string): Observable<Alert> {
     console.log(_id);
     return this.http.get(`${this.baseUrl}/tasks/${_id}`)
       .map(res => <Alert>(res.json()))
   }
 
-   // Search for github Alerts  
+   // Search for Alerts  
   searchAlerts(searchParam: string): Observable<Alert[]> {
     return this.http.get(`${this.baseUrl}/tasks`) 
       .map(res => <Alert[]>(res.json().items))
