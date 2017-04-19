@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 
 import { Alert } from '../../models/alert';
 
+
 import {  AlertsDetails } from '../../providers/alerts-details';
 import { AlertDetailsPage } from '../alert-details/alert-details';
 
@@ -11,15 +12,15 @@ import { AlertDetailsPage } from '../alert-details/alert-details';
   templateUrl: 'alerts.html'
 })
 export class AlertsPage {
-  alerts: Alert[]
-  originalAlerts: Alert[];
+  alerts: Alert[];
+  
+
 
   constructor(public navCtrl: NavController, private alertsDetails: AlertsDetails) {
     alertsDetails.load().subscribe(alerts => {
-      this.alerts = alerts;
+      this.alerts = alerts.slice().reverse();
       console.log(alerts)
-      this.originalAlerts = alerts;
-    })
+    }) 
   }
 
   goToDetails(_id: string) {

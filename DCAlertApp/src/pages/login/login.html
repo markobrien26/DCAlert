@@ -1,0 +1,66 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title align="center">
+		Login 
+		</ion-title>
+
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content padding="true" class="has-header">
+	<div>
+		<img src="img/AoqhWQ3VRGSnXI4Kc5jo_ProjectLogo2.png" style="display: block; width: 28%; height: auto; margin-left: auto; margin-right: auto;">
+	</div>
+	<div class="login-box">
+		<form (ngSubmit)="login()" #registerForm="ngForm">
+			<ion-row>
+				<ion-col>
+					<ion-list inset>
+
+						<ion-item>
+							<ion-input type="text" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
+						</ion-item>
+
+						<ion-item>
+							<ion-input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
+						</ion-item>
+
+					</ion-list>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col class="signup-col">
+					<button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Login</button>
+				</ion-col>
+			</ion-row>
+		</form>
+	</div>
+	<div>
+		<img src="img/jyGJHhwLTNS8tmQIDntJ_01TSSGlogo60mm.png" style="display: block; width: 40%; height: auto; margin-left: auto; margin-right: auto;">
+	</div>
+</ion-content>
+
+<!--
+<ion-view title="Login" id="page1">
+	<ion-content padding="true" class="has-header">
+		<div>
+			<img src="img/AoqhWQ3VRGSnXI4Kc5jo_ProjectLogo2.png" style="display: block; width: 28%; height: auto; margin-left: auto; margin-right: auto;">
+		</div>
+		<form id="login-form1" class="list">
+			<label class="item item-input item-stacked-label" id="login-input2">
+				<span class="input-label">Username</span>
+				<input type="number" placeholder="Username">
+			</label>
+			<label class="item item-input item-stacked-label" id="login-input1">
+				<span class="input-label">Password</span>
+				<input type="number" placeholder="********">
+			</label>
+		</form>
+		<a ui-sref="alerts" id="login-button1" class="button button-positive  button-block">Login</a>
+		<div>
+			<img src="img/jyGJHhwLTNS8tmQIDntJ_01TSSGlogo60mm.png" style="display: block; width: 40%; height: auto; margin-left: auto; margin-right: auto;">
+		</div>
+	</ion-content>
+</ion-view>
+-->

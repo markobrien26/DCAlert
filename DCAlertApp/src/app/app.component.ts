@@ -5,7 +5,8 @@ import { Platform, MenuController, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { AlertsPage } from '../pages/alerts/alerts';
+import { LoginPage } from '../pages/login/login';
+import { Push, PushToken } from '@ionic/cloud-angular';
 
 
 
@@ -16,20 +17,21 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
-  rootPage: any = AlertsPage;
+  rootPage: any = LoginPage;
   pages: Array<{title: string, component: any}>;
 
   constructor(
     public platform: Platform,
     public menu: MenuController,
     public statusBar: StatusBar,
-    public splashScreen: SplashScreen
+    public splashScreen: SplashScreen,
+    public push: Push
   ) {
     this.initializeApp();
 
     // set our app's pages
     this.pages = [
-      { title: 'Alerts', component: AlertsPage }
+      { title: 'Login', component: LoginPage }
     ];
   }
 
@@ -40,6 +42,17 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+
+    this.push.register().then((t: PushToken) => {
+        return this.push.saveToken(t);
+      }).then((t: PushToken) => {
+        console.log('Token saved:', t.token);
+      });
+ 
+      this.push.rx.notification()
+      .subscribe((msg) => {
+        console.log('I received awesome push: ' + msg);
+      });
   }
 
   openPage(page) {

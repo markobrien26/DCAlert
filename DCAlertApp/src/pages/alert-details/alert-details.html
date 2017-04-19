@@ -2,7 +2,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Alert details</ion-title>
+  <ion-title>Alert details <img src="img/AoqhWQ3VRGSnXI4Kc5jo_ProjectLogo2.png" style="width: 8%; height: auto; float: right"></ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -10,21 +10,29 @@
 
 <ion-content padding >
   <ion-list>
-    <ion-item>
+    <ion-item *ngIf='alert?.Created_date'>
       <ion-label>Time</ion-label>
-      <ion-badge item-right>{{alert?.Created_date | date: 'dd-MM-yyyy @ hh:mm:ss' }}</ion-badge>
+      <ion-badge item-right>{{alert?.Created_date | date: 'dd-MM-yyyy @ HH:mm:ss' }}</ion-badge>
     </ion-item>
-     <ion-item>
+    <ion-item *ngIf='alert?.src_ip'>
       <ion-label>Source IP</ion-label>
       <ion-badge item-right>{{alert?.src_ip}}</ion-badge>
     </ion-item>
-     <ion-item>
-      <ion-label>ID</ion-label>
-      <ion-badge item-right>{{alert?._id}}</ion-badge>
+    <ion-item *ngIf='alert?.city'>
+      <ion-label>City</ion-label>
+      <ion-badge item-right>{{alert?.city}}</ion-badge>
     </ion-item>
-     <ion-item>
-      <ion-label>Gists</ion-label>
-      <ion-badge item-right>{{alert?.public_gists}}</ion-badge>
+    <ion-item *ngIf='alert?.country'>
+      <ion-label>Country</ion-label>
+      <ion-badge item-right>{{alert?.country}}</ion-badge>
+    </ion-item>
+    <ion-item *ngIf='alert?.host'>
+      <ion-label>Host</ion-label>
+      <ion-badge item-right>{{alert?.host}}</ion-badge>
+    </ion-item>
+    <ion-item *ngIf='alert?.temperature'>
+      <ion-label>Temperature</ion-label>
+      <ion-badge item-right>{{alert?.temperature}}</ion-badge>
     </ion-item>
   </ion-list>    
 </ion-content>
