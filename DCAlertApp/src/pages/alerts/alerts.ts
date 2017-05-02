@@ -28,5 +28,8 @@ export class AlertsPage {
     console.log(_id)
   }
 
+  refresh(){
+    this.navCtrl.push(AlertsPage);
+  }
   
 }

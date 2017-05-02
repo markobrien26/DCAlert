@@ -14,10 +14,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 const cloudSettings: CloudSettings = {
   'core': {
-    'app_id': '70e23f08'
+    'app_id': '1:66779048628:android:07100cd8a231bd7c'
   },
   'push': {
-    'sender_id': '801741226650',
+    'sender_id': '66779048628',
     'pluginConfig': {
       'ios': {
         'badge': true,

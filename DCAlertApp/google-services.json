@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "801741226650",
-    "firebase_url": "https://popping-torch-1159.firebaseio.com",
-    "project_id": "popping-torch-1159",
-    "storage_bucket": "popping-torch-1159.appspot.com"
+    "project_number": "66779048628",
+    "firebase_url": "https://dcalert-385f6.firebaseio.com",
+    "project_id": "dcalert-385f6",
+    "storage_bucket": "dcalert-385f6.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:801741226650:android:07100cd8a231bd7c",
+        "mobilesdk_app_id": "1:66779048628:android:07100cd8a231bd7c",
         "android_client_info": {
           "package_name": "com.dcalert.android"
         }
       },
       "oauth_client": [
         {
-          "client_id": "801741226650-dhsinr6hq8qp2qbrmhf09uceppa8k7pl.apps.googleusercontent.com",
+          "client_id": "66779048628-05lvao8us220jcut062knmf3isn8fi4t.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDTSblsWiOZxD1JVlewdayKO1ZjOeBcmiw"
+          "current_key": "AIzaSyCCawjgwWT_mbndGxyZrjfTW-w7KXYyAHc"
         }
       ],
       "services": {

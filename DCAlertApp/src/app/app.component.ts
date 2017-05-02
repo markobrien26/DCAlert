@@ -9,7 +9,7 @@ import { LoginPage } from '../pages/login/login';
 import { Push, PushToken } from '@ionic/cloud-angular';
 
 
-
+declare var FCMPlugin;
 @Component({
   templateUrl: 'app.html'
 })
@@ -26,12 +26,12 @@ export class MyApp {
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
     public push: Push
-  ) {
+    ) {
     this.initializeApp();
 
     // set our app's pages
     this.pages = [
-      { title: 'Login', component: LoginPage }
+    { title: 'Logout', component: LoginPage }
     ];
   }
 
@@ -41,18 +41,46 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      FCMPlugin.getToken(
+        function (token) {
+          console.log(token);
+          //alert(token);
+        },
+        function (err) {
+          console.log('error retrieving token: ' + err);
+        }
+        );
+
+      FCMPlugin.onNotification(
+        function(data){
+          if(data.wasTapped){
+            //Notification was received on device tray and tapped by the user.
+            alert( JSON.stringify(data) );
+          }else{
+            //Notification was received in foreground. Maybe the user needs to be notified.
+            alert( JSON.stringify(data) );
+          }
+        },
+        function(msg){
+          console.log('onNotification callback successfully registered: ' + msg);
+        },
+        function(err){
+          console.log('Error registering onNotification callback: ' + err);
+        }
+        );
     });
 
     this.push.register().then((t: PushToken) => {
-        return this.push.saveToken(t);
-      }).then((t: PushToken) => {
-        console.log('Token saved:', t.token);
-      });
- 
-      this.push.rx.notification()
-      .subscribe((msg) => {
-        console.log('I received awesome push: ' + msg);
-      });
+      return this.push.saveToken(t);
+    }).then((t: PushToken) => {
+      console.log('Token saved:', t.token);
+    });
+    
+    this.push.rx.notification()
+    .subscribe((msg) => {
+      console.log('I received awesome push: ' + msg);
+    });
   }
 
   openPage(page) {

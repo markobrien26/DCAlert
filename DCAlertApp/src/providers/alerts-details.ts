@@ -8,7 +8,7 @@ import { Alert } from '../models/alert';
 
 @Injectable()
 export class AlertsDetails {
-  baseUrl = 'http://87.44.19.97:3000';
+  baseUrl = 'http://34.249.84.226:3000';
   alerts: Alert[]
 
   constructor(public http: Http) { }
